@@ -10,10 +10,11 @@ https://www.codegrid.net/articles/2020-webxr-3/
 https://github.com/codegrid/2020-webxr/blob/master/04_xr-hit-test.html
 
 
-
-
-
  -->
+
+ 
+
+
 
 
  <!DOCTYPE html>
@@ -29,7 +30,6 @@ canvas{display: block;}
 </style>
 </head>
 <body>
-  <script src="./three.min.js"></script>
 
 <!-- WebXR を起動するためには、ユーザーが意図して起動するための「ボタン」が必須。-->
 <button type="button" id="startButton">ARカメラ起動</button>
@@ -38,6 +38,7 @@ canvas{display: block;}
 
 <script type="module">
 // import * as THREE from 'https://unpkg.com/three@0.113.2/build/three.module.js';
+import * as THREE from 'https://unpkg.com/three@0.139.0/build/three.module.js';
 
 const width  = window.innerWidth;
 const height = window.innerHeight;
