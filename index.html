@@ -1,3 +1,11 @@
+<!-- 
+  three.module.jsのファイル(のexportしたclass)を直接取り込む
+  参考サイトは大抵CDNで取り込んでいるが、ローカルで完結させた方が安全
+
+
+  内容は hittestのコードをそのまま使用している
+  (平面検出 → 常に画面の中央に円錐を表示させる)
+ -->
 
 
 <!-- 
@@ -11,9 +19,6 @@ https://github.com/codegrid/2020-webxr/blob/master/04_xr-hit-test.html
 
 
  -->
-
- 
-
 
 
 
@@ -38,8 +43,10 @@ canvas{display: block;}
 
 <script type="module">
 //three.module.js(ver0.113.2)からexportされたclassをimport (importするものを一つ一つ指定する必要もあるが数が多いとめんどくさいため、classに要素として追加してclass名で呼び出すと楽)
+//JSファイル(のclass)をCDNからimportする場合の書き方()
 // import * as THREE from 'https://unpkg.com/three@0.113.2/build/three.module.js';
 
+//JSファイル(のclass)を直接importする場合の書き方()
 import * as THREE from './three.module.js';
 
 
@@ -50,7 +57,8 @@ const width  = window.innerWidth;
 const height = window.innerHeight;
 const $button = document.getElementById( 'startButton' );
 
-( async () => {
+// ( async () => {
+const parentFunc = async () => {
 
   // 任意のモードが利用可能かを調べる
   const isArSupported = navigator.xr && await navigator.xr.isSessionSupported( 'immersive-ar' );
@@ -190,8 +198,13 @@ const $button = document.getElementById( 'startButton' );
     }
 
   }
+}
+parentFunc(); 
 
-} )();
+// } )();
+
+
+
 </script>
 
 </body>
