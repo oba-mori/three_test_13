@@ -58,7 +58,8 @@ const height = window.innerHeight;
 const $button = document.getElementById( 'startButton' );
 
 // ( async () => {
-const parentFunc = async () => {
+// const parentFunc = async () => {
+  const parentFunc = async function () {
 
   // 任意のモードが利用可能かを調べる
   const isArSupported = navigator.xr && await navigator.xr.isSessionSupported( 'immersive-ar' );
